@@ -35,20 +35,18 @@
 #           echo Add other actions to build,
 #           echo test, and deploy your project.
 
-
 name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
-
 jobs:
   # Runs as usual
   build:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -61,14 +59,14 @@ jobs:
   # Will always appear as "skipped"
   lint:
     if: ${{ false }}
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     steps:
       - run: echo "You should never see this, because the job is skipped."
 
   # Conditionally skipped unless commit message includes [run tests]
   tests:
     if: ${{ contains(github.event.head_commit.message, '[run tests]') }}
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs: build
     steps:
       - uses: actions/checkout@v4
