@@ -46,7 +46,7 @@ on:
 jobs:
   # Runs as usual
   build:
-    runs-on: tenki-standard-small-2c-4g
+    runs-on: namespace-profile-default
     steps:
       - uses: actions/checkout@v4
       - name: Run a one-line script
@@ -59,14 +59,14 @@ jobs:
   # Will always appear as "skipped"
   lint:
     if: ${{ false }}
-    runs-on: tenki-standard-small-2c-4g
+    runs-on: namespace-profile-default
     steps:
       - run: echo "You should never see this, because the job is skipped."
 
   # Conditionally skipped unless commit message includes [run tests]
   tests:
     if: ${{ contains(github.event.head_commit.message, '[run tests]') }}
-    runs-on: tenki-standard-small-2c-4g
+    runs-on: namespace-profile-default
     needs: build
     steps:
       - uses: actions/checkout@v4
