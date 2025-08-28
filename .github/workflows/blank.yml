@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   fake-run:
-    runs-on: tenki-standard-medium-4c-8g
+    runs-on: tenki-standard-large-8c-16g
     steps:
       - name: Wait 10 minutes
         run: sleep 3600 # 600 seconds = 10 minutes
