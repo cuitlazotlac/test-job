@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 jobs:
   fake-run:
-    runs-on: tenki-standard-autoscale
+    runs-on: tenki-standard-small-2c-4g
     steps:
       - name: Wait 10 minutes
         run: sleep 3600 # 600 seconds = 10 minutes
