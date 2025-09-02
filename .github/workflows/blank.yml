@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 jobs:
   fake-run:
-    runs-on: tenki-standard-small-2c-4g
+    runs-on: uns-on: ubicloud-standard-2
     steps:
       - name: Wait 10 minutes
-        run: sleep 3600 # 600 seconds = 10 minutes
+        run: sleep 300 # 600 seconds = 10 minutes
 
       - name: Confirm end of fake run
-        run: echo "Finished fake 10-minute job for pricing test"
+        run: echo "Finished fake 10-minute job for test"
